@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Progress Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f5f6fa; }
+        h1 { color: #2d3436; }
+        form {
+            background: #fff;
+            padding: 24px;
+            border-radius: 8px;
+            max-width: 500px;
+            box-shadow: 0 2px 8px #dfe6e9;
+        }
+        label { display: block; margin-top: 16px; font-weight: bold; }
+        input, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 4px;
+            border: 1px solid #b2bec3;
+            border-radius: 4px;
+            font-size: 15px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background: #0984e3;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover { background: #74b9ff; }
+    </style>
+</head>
+<body>
+    <h1>Daily Progress Report</h1>
+    <form id="progressForm">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="completed">Tasks Completed:</label>
+        <textarea id="completed" name="completed" rows="3" required></textarea>
+
+        <label for="inProgress">Tasks In Progress:</label>
+        <textarea id="inProgress" name="inProgress" rows="3"></textarea>
+
+        <label for="blockers">Blockers/Issues:</label>
+        <textarea id="blockers" name="blockers" rows="2"></textarea>
+
+        <label for="notes">Additional Notes:</label>
+        <textarea id="notes" name="notes" rows="2"></textarea>
+
+        <button type="submit">Submit Report</button>
+    </form>
+    <script>
+        document.getElementById('progressForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = {
+                date: document.getElementById('date').value,
+                name: document.getElementById('name').value,
+                completed: document.getElementById('completed').value,
+                inProgress: document.getElementById('inProgress').value,
+                blockers: document.getElementById('blockers').value,
+                notes: document.getElementById('notes').value,
+            };
+            console.log('Daily Progress Report:', data);
+            alert('Progress report submitted!\n\nCheck the console for details.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
